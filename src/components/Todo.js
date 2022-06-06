@@ -37,10 +37,10 @@ function Todo() {
     }
   }
 
-  // const onSubmit = () => {
-  //   putItems([...items, { key: getKey(), text: content, done: false }]);
-  //   setContent('');
-  // }
+  const onSubmit = () => {
+    putItems([...items, { key: getKey(), text: content, done: false }]);
+    setContent('');
+  }
 
 
   return (
@@ -48,7 +48,7 @@ function Todo() {
       <div className="panel-heading">
         ITSS ToDoアプリ
       </div>
-      {/* <input
+      <input
         type='text'
         value={content}
         onChange={e => setContent(e.target.value)}
@@ -57,7 +57,7 @@ function Todo() {
             onSubmit()
         }
         }
-      /> */}
+      />
       {items.map(item => (
         <TodoItem
           item={item} onClick={(data) => onUpdate(data)}
