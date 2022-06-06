@@ -19,16 +19,16 @@ import useStorage from '../hooks/storage';
 import { getKey } from "../lib/util";
 
 function Todo() {
-  // const [items, putItems] = React.useState([
-  //   /* テストコード 開始 */
-  //   { key: getKey(), text: '日本語の宿題', done: false },
-  //   { key: getKey(), text: 'reactを勉強する', done: false },
-  //   { key: getKey(), text: '明日の準備をする', done: false },
-  //   /* テストコード 終了 */
-  // ]);
+  const [items, putItems] = React.useState([
+    /* テストコード 開始 */
+    { key: getKey(), text: '日本語の宿題', done: false },
+    { key: getKey(), text: 'reactを勉強する', done: false },
+    { key: getKey(), text: '明日の準備をする', done: false },
+    /* テストコード 終了 */
+  ]);
   const [content, setContent] = useState('');
   const [selectedTab, setSelectedTab] = useState(0);
-  const [items, putItems, clearItems] = useStorage();
+  // const [items, putItems, clearItems] = useStorage();
 
   const onUpdate = (data) => {
     const index = items.findIndex(item => item.key === data.key);
@@ -86,9 +86,9 @@ function Todo() {
     }
   }
 
-  const onRemove = () => {
-    clearItems();
-  }
+  // const onRemove = () => {
+  //   clearItems();
+  // }
 
 
   return (
@@ -108,11 +108,11 @@ function Todo() {
         }
         placeholder="Add new todo"
       />
-      <input
+      {/* <input
         type='submit'
         value='消去'
         onClick={onRemove}
-      />
+      /> */}
       <div className='tabs'>
         {
           tabs.map((tab, index) => (<div className={`tab ${index === selectedTab ? 'active' : ''}`} key={index} onClick={() => setSelectedTab(index)} >{tab}</div>))
